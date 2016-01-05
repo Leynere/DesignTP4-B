@@ -1,0 +1,24 @@
+@startuml
+    package fr.umlv.exo2{
+        enum Army
+        interface Military{
+            +speed():int
+            +health():int
+            +fire():int
+            +getArmy():Army
+        }
+        enum SoldierKind
+        class Soldier implements Military{
+            +kind():int
+        }
+        Soldier-->SoldierKind
+        class ArmyTruck implements Military{
+            {static}+getArmyTruck(Soldier[*],Army):ArmyTruck
+            -ArmyTruck(int, int, Army)
+            +add(Soldier)
+        }
+
+        Military-->Army
+    }
+
+@enduml
